@@ -1,0 +1,248 @@
+// Подключение CSS 
+<link rel="stylesheet" href="http://u77820.test-handyhost.ru/wp-content/calc_files/css_for_calc.css">
+// Оболочка
+<div class="dws-wrapper">
+// Вкладки
+<div class="dws-form">
+<label class="tab active" title="Вкладка 1">Сборный. Море+ЖД. Азия</label>
+<label class="tab" title="Вкладка 2">Контейнер. Море+ЖД. Азия</label>
+<label class="tab" title="Вкладка 3">Cборный. ЖД. Китай</label>
+<label class="tab" title="Вкладка 4">Контейнер. ЖД. Китай</label>
+<div class="gap"></div>
+// Форма №1
+<form class="tab-form active">
+<div id="calcLCL" >
+<div class="control">
+<label for="port" class="left_column">Откуда</label>
+<select id="port" class="right_column">
+<option selected disabled>Выберите порт</option>
+</select>
+</div>
+<div class="control">
+<label for="destination" class="left_column">Куда</label>
+<select id="destination" class="right_column">
+<option selected disabled>Выберите город</option>
+</select>
+</div>
+<div class="control">
+<label for="Weight" class="left_column">Вес, кг</label>
+<input class="right_column" type="number" size="3" min="1" value="" id="Weight" placeholder="Укажите вес" 
+    style="display: inline-block;
+	max-width: 500px;
+	color: black;
+    border: 1px solid #0a0a0a;">
+</div>
+<div class="control">
+<label for="CBM" class="left_column">Объем, м3</label>
+<input class="right_column" type="number" size="3" min="1" value="" id="CBM" placeholder="Укажите объем" 
+style="display: inline-block; 	max-width: 500px; color: black; border: 1px solid #0a0a0a;">
+</div>
+<div class="gap"></div>
+// Кнопка запуска расчета №1
+<button type="button" onclick="ButtonClickLCL()" return false;>Рассчитать</button>
+// Таблица вывода значений формы №1
+<div class="gap"></div>
+                <div class="col-md-6">
+                    <table class="table">
+                        <thread>
+                            <tr>
+                                <th>Наименование услуги</th>
+                                <th>Стоимость</th>
+                            </tr>
+                        </thread>
+                        <tbody>
+                        <tr>
+                            <th>Морской фрахт</th>
+                            <td class="freight">-</td>
+                        </tr>
+                        <tr>
+                            <th>ЖД</th>
+                            <td class="rail">-</td>
+                        </tr>
+                        <tr>
+                            <th>Авто</th>
+                            <td class="delivery">-</td>
+                        </tr>
+                        <tr>
+                            <th>ИТОГО</th>
+                            <td class="sumLCL">-</td>
+                        </tr>
+						</tbody>
+						<th class="route"></th>
+						<tr></tr>
+						<th class="info"></th>
+                    </table>
+                </div>			
+</div>
+</form>
+// Форма №2
+<form class="tab-form">
+<div id="calcFCL" >
+<div class="control">
+<label for="portFCL" class="left_column">Откуда</label>
+<select id="portFCL" class="right_column">
+<option selected disabled>Выберите порт</option>
+</select>
+</div>
+<div class="control">
+<label for="destinationFCL" class="left_column">Куда</label>
+<select id="destinationFCL" class="right_column">
+<option selected disabled>Выберите город</option>
+</select>
+</div>
+<div class="control">
+<label for="boxFCL" class="left_column">Тип контейнера</label>
+<select id="boxFCL" class="right_column">
+<option selected disabled>Выберите тип контейнера</option>
+<option id="20DC" data-boxFCL="20DC">20DC</option>
+<option id="40HC" data-boxFCL="40HC">40HC</option>
+</select>
+</div>
+<div class="gap"></div>
+// Кнопка запуска расчета №2
+<button type="button" onclick="ButtonClickFCL()" return false;>Рассчитать</button>
+// Таблица вывода значений расчета №2
+<div class="gap"></div>
+                <div class="col-md-6">
+                    <table class="table">
+                        <thread>
+                            <tr>
+                                <th>Наименование услуги</th>
+                                <th>Стоимость</th>
+                            </tr>
+                        </thread>
+                        <tbody>
+                        <tr>
+                            <th>Морской фрахт</th>
+                            <td class="freightFCL">-</td>
+                        </tr>
+                        <tr>
+                            <th>ЖД</th>
+                            <td class="railFCL">-</td>
+                        </tr>
+                        <tr>
+                            <th>Авто</th>
+                            <td class="deliveryFCL">-</td>
+                        </tr>
+                        <tr>
+                            <th>ИТОГО</th>
+                            <td class="sumFCL">-</td>
+                        </tr>
+						</tbody>
+						<th class="routeFCL"></th>
+						<tr></tr>
+						<th class="infoFCL"></th>
+                    </table>
+                </div>			
+</div>
+</form>
+// Форма №3
+<form class="tab-form">
+<div id="calcLCLrail" >
+<div class="control">
+<label for="stationRail" class="left_column">Откуда</label>
+<select id="stationRail" class="right_column">
+<option selected disabled>Выберите станцию</option>
+</select>
+</div>
+<div class="control">
+<label for="destinationRail" class="left_column">Куда</label>
+<select id="destinationRail" class="right_column">
+<option selected disabled>Выберите город</option>
+</select>
+</div>
+<div class="control">
+<label for="WeightRail" class="left_column">Вес, кг</label>
+<input class="right_column" type="number" size="3" min="1" value="" id="WeightRail" placeholder="Укажите вес" 
+style="display: inline-block; max-width: 500px; color: black;border: 1px solid #0a0a0a;">
+</div>
+<div class="control">
+<label for="CBMRail" class="left_column">Объем, м3</label>
+<input class="right_column" type="number" size="3" min="1" value="" id="CBMRail" placeholder="Укажите объем" 
+style="display: inline-block; max-width: 500px; color: black; border: 1px solid #0a0a0a;">
+</div>
+<div class="gap"></div>
+// Кнопка запуска расчета №3
+<button type="button" onclick="ButtonClickLCLrail()" return false;>Рассчитать</button>
+
+// Таблица вывода значений расчета №3
+<div class="gap"></div>
+                <div class="col-md-6">
+                    <table class="table">
+                        <thread>
+                            <tr>
+                                <th>Наименование услуги</th>
+                                <th>Стоимость</th>
+                            </tr>
+                        </thread>
+                        <tbody>
+                        <th>ЖД</th>
+                            <td class="railRail">-</td>
+                        </tr>
+                        <tr>
+                            <th>Авто</th>
+                            <td class="deliveryRail">-</td>
+                        </tr>
+                        <tr>
+                            <th>ИТОГО</th>
+                            <td class="sumLCLrail">-</td>
+                        </tr>
+						</tbody>
+						<th class="routeRail"></th>
+						<tr></tr>
+						<th class="infoRail"></th>
+                    </table>
+                </div>			
+</div>
+</form>
+// Форма №4
+<form class="tab-form">
+<div id="calcFCLrail" >
+<div class="control">
+<label for="stationFCLrail" class="left_column">Откуда</label>
+<select id="stationFCLrail" class="right_column">
+<option selected disabled>Выберите станцию</option>
+</select>
+</div>
+<div class="control">
+<label for="destinationFCLrail" class="left_column">Куда</label>
+<select id="destinationFCLrail" class="right_column">
+<option selected disabled>Выберите город</option>
+</select>
+</div>
+<div class="gap"></div>
+// Кнопка запуска расчета №4
+<button type="button" onclick="ButtonClickFCLrail()" return false;>Рассчитать</button>
+// Таблица вывода значений расчета №4
+<div class="gap"></div>
+                <div class="col-md-6">
+                    <table class="table">
+                        <thread>
+                            <tr>
+                                <th>Наименование услуги</th>
+                                <th>Стоимость</th>
+                            </tr>
+                        </thread>
+                        <tbody>
+                        <tr>
+                            <th>ЖД</th>
+                            <td class="railFCLrail">-</td>
+                        </tr>
+                        <tr>
+                            <th>Авто</th>
+                            <td class="deliveryFCLrail">-</td>
+                        </tr>
+                        <tr>
+                            <th>ИТОГО</th>
+                            <td class="sumFCLrail">-</td>
+                        </tr>
+						</tbody>
+						<th class="routeFCLrail"></th>
+						<tr></tr>
+						<th class="infoFCLrail"></th>
+                    </table>
+                </div>			
+</div>
+</form>
+</div>
+</div>
