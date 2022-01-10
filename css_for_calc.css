@@ -1,0 +1,62 @@
+.dws-wrapper {
+top: 50%;
+left: 50%;
+transform: translate(-50%; -50%);	
+} 
+.dws-form {
+	background-color: #fff;
+}
+.dws-form a {
+	text-decoration: none;
+	transition: .5s;
+	color: #298cad;
+}
+.dws-form a:hover {
+	color: #36d2ff;
+}
+.tab-form {
+	background-color: #fff;
+	display: none;
+}
+.tab-form.active{
+	display:block;
+}
+label.tab {
+color: black;
+font-weight: 600;
+padding: 15px;
+display: inline-block;
+border-radius: 3px 3px 0 0;
+margin-bottom: -1px;
+cursor: pointer;
+}
+label.tab.active {
+	outline: 1px solid black;
+	background-color: black;
+	color: white;
+}
+.del {
+	display: none;
+}
+
+.control {
+	margin: 10px 0px;
+    align: center;
+}
+
+.left_column {
+	display: inline-block;
+	width: 250px;
+}
+
+.right_column {
+display: inline-block;
+	width: 500px;
+	color: #333;
+    border: 1px solid #0a0a0a;
+}
+
+.gap {
+margin: 30px 0px;
+}
+
